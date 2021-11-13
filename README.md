@@ -2,7 +2,7 @@
 
 :information_source: &nbsp;This repo contains questions and exercises on various technical topics, sometimes related to DevOps and SRE :)
 
-:bar_chart: &nbsp;There are currently **1962** questions
+:bar_chart: &nbsp;There are currently **1999** questions
 
 :books: &nbsp;To learn more about DevOps and SRE, check the resources in [devops-resources](https://github.com/bregman-arie/devops-resources) repository
 
@@ -32,7 +32,7 @@
     <td align="center"><a href="#programming"><img src="images/programming.png" width="75px;" height="75px;" alt="programming"/><br /><b>Programming</b></a></td>
     <td align="center"><a href="#python"><img src="images/python.png" width="80px;" height="75px;" alt="Python"/><br /><b>Python</b></a></td>
     <td align="center"><a href="#go"><img src="images/Go.png" width="75px;" height="75px;" alt="go"/><br /><b>Go</b></a></td>
-    <td align="center"><a href="#shell-scripting"><img src="images/bash.png" width="70px;" height="75px;" alt="Bash"/><br /><b>Shell Scripting</b></a></td>
+    <td align="center"><a href="exercises/shell/README.md"><img src="images/bash.png" width="70px;" height="75px;" alt="Bash"/><br /><b>Shell Scripting</b></a></td>
     <td align="center"><a href="#kubernetes"><img src="images/kubernetes.png" width="75px;" height="75px;" alt="kubernetes"/><br /><b>Kubernetes</b></a></td>
     <td align="center"><a href="#prometheus"><img src="images/prometheus.png" width="75px;" height="75px;" alt="Prometheus"/><br /><b>Prometheus</b></a></td>
   </tr>
@@ -42,14 +42,14 @@
     <td align="center"><a href="#azure"><img src="images/azure.png" width="75px;" height="75px;" alt="azure"/><br /><b>Azure</b></a></td>
     <td align="center"><a href="#gcp"><img src="images/googlecloud.png" width="80px;" height="75px;" alt="Google Cloud Platform"/><br /><b>Google Cloud Platform</b></a></td>
     <td align="center"><a href="#openstack"><img src="images/openstack.png" width="75px;" height="75px;" alt="openstack"/><br /><b>OpenStack</b></a></td>
-    <td align="center"><a href="#security"><img src="images/security.png" width="75px;" height="75px;" alt="security"/><br /><b>Security</b></a></td>
+    <td align="center"><a href="exercises/security/README.md"><img src="images/security.png" width="75px;" height="75px;" alt="security"/><br /><b>Security</b></a></td>
   </tr>
   <tr>
     <td align="center"><a href="#operating-system"><img src="images/os.png" width="75px;" height="75px;" alt="Operating System"/><br /><b>Operating System</b></a></td>
     <td align="center"><a href="#monitoring"><img src="images/monitoring.png" width="75px;" height="75px;" alt="Monitoring"/><br /><b>Monitoring</b></a></td>
     <td align="center"><a href="#elastic"><img src="images/elastic.png" width="110px;" height="75px;" alt="Elastic"/><br /><b>Elastic</b></a></td>
     <td align="center"><a href="#virtualization"><img src="images/virtualization.png" width="75px;" height="75px;" alt="Virtualization"/><br /><b>Virtualization</b></a></td>
-    <td align="center"><a href="#dns"><img src="images/dns.png" width="75px;" height="75px;" alt="DNS"/><br /><b>DNS</b></a></td>
+    <td align="center"><a href="exercises/dns/README.md"><img src="images/dns.png" width="75px;" height="75px;" alt="DNS"/><br /><b>DNS</b></a></td>
     <td align="center"><a href="#Misc"><img src="images/general.png" width="110px;" height="75px;" alt="Misc"/><br /><b>Misc</b></a></td>
   </tr>
   <tr>
@@ -190,9 +190,6 @@ You can read more about the OSI model in [penguintutor.com](http://www.penguintu
   * IP address - Network
   * Terminate connections - Session
   * 3 way handshake - Transport
-</b></details>
-
-<details>
 </b></details>
 
 <details>
@@ -370,6 +367,27 @@ For example, your computer's private IP could be 192.168.1.100, but your router 
 
 <details>
 <summary>Which factors affect network performances</summary><br><b>
+</b></details>
+
+<details>
+<summary>Which port number is used in each of the following protocols?:
+
+  * SSH
+  * SMTP
+  * HTTP
+  * DNS
+  * HTTPS
+  * FTP
+  * SFTP
+</summary><br><b>
+
+  * SSH - 22
+  * SMTP - 25
+  * HTTP - 80
+  * DNS - 53
+  * HTTPS - 443
+  * FTP - 21
+  * SFTP - 22
 </b></details>
 
 #### Network - Data and Control planes
@@ -638,6 +656,12 @@ They take in input (<) and output for a given file (>) using stdin and stdout.
 </summary><br><b>
 
   - sed: a stream editor. Can be used for various purposes like replacing a word in a file: `sed -i s/salad/burger/g`
+  - grep: a search tool. Used to search, count or match a text in a file:
+    - searching for any line that contains a word in a file: `grep 'word' file.md`
+    - or displaying the total number of times a string appears in a file: `grep -c 'This is a string' file.md`
+  - cut: a tool for cutting out selected portions of each line of a file:
+    - syntax: `cut OPTION [FILE]`
+      - cutting first two bytes from a word in a file: `cut -b 1-2 file.md`, output: `wo`
 </b></details>
 
 <details>
@@ -1608,23 +1632,6 @@ False
 <summary>Can you have more than one default gateway in a given system?</summary><br><b>
 
 Technically, yes.
-</b></details>
-
-<details>
-<summary>Which port is used in each of the following protocols?:
-
-  * SSH
-  * SMTP
-  * HTTP
-  * DNS
-  * HTTPS
-</summary><br><b>
-
-  * SSH - 22
-  * SMTP - 25
-  * HTTP - 80
-  * DNS - 53
-  * HTTPS - 443
 </b></details>
 
 <details>
@@ -5306,270 +5313,6 @@ If more pods are running than needed -> it deletes some of them<br>
 If not enough pods are running -> it creates more
 </b></details>
 
-## Shell Scripting
-
-### Shell Scripting Exercises
-
-|Name|Topic|Objective & Instructions|Solution|Comments|
-|--------|--------|------|----|----|
-|Hello World|Variables|[Exercise](exercises/shell/hello_world.md)|[Solution](exercises/shell/solutions/hello_world.md) | Basic
-|Basic date|Variables|[Exercise](exercises/shell/basic_date.md)|[Solution](exercises/shell/solutions/basic_date.md) | Basic
-|Great Day|Variables|[Exercise](exercises/shell/great_day.md)|[Solution](exercises/shell/solutions/great_day.md) | Basic
-|Factors|Arithmetic|[Exercise](exercises/shell/factors.md)|[Solution](exercises/shell/solutions/factors.md) | Basic
-|Argument Check|Conditionals|[Exercise](exercises/shell/argument_check.md)|[Solution](exercises/shell/solutions/argument_check.md) | Basic
-|Files Size|For Loops|[Exercise](exercises/shell/files_size.md)|[Solution](exercises/shell/solutions/files_size.md) | Basic
-|Count Chars|Input + While Loops|[Exercise](exercises/shell/count_chars.md)|[Solution](exercises/shell/solutions/count_chars.md) | Basic
-|Sum|Functions|[Exercise](exercises/shell/sum.md)|[Solution](exercises/shell/solutions/sum.md) | Basic
-|Number of Arguments|Case Statement|[Exercise](exercises/shell/num_of_args.md)|[Solution](exercises/shell/solutions/num_of_args.md) | Basic
-|Empty Files|Misc|[Exercise](exercises/shell/empty_files.md)|[Solution](exercises/shell/solutions/empty_files.md) | Basic
-|Directories Comparison|Misc|[Exercise](exercises/shell/directories_comparison.md)| :( | Basic
-|It's alive!|Misc|[Exercise](exercises/shell/host_status.md)|[Solution](exercises/shell/solutions/host_status.md) | Intermediate
-
-## Shell Scripting - Self Assessment
-
-<details>
-<summary>What does this line in shell scripts means?: <code>#!/bin/bash</code></summary><br><b>
-
-
-`#!/bin/bash` is She-bang
-
-/bin/bash is the most common shell used as default shell for user login of the linux system. The shell’s name is an acronym for Bourne-again shell. Bash can execute the vast majority of scripts and thus is widely used because it has more features, is well developed and better syntax.
-
-</b></details>
-
-<details>
-<summary>True or False? When a certain command/line fails in a shell script, the shell script, by default, will exit and stop running</summary><br><b>
-
-Depends on the language and settings used.
-If the script is a bash script then this statement is true. When a script written in Bash fails to run a certain command it will keep running and will execute all other commands mentioned after the command which failed.
-
-Most of the time we might actually want the opposite to happen. In order to make Bash exist when a specific command fails, use 'set -e' in your script.
-</b></details>
-
-<details>
-<summary>What do you tend to include in every script you write?</summary><br><b>
-
-Few example:
-
-  * Comments on how to run it and/or what it does
-  * If a shell script, adding "set -e" since I want the script to exit if a certain command failed
-
-You can have an entirely different answer. It's based only on your experience and preferences.
-</b></details>
-
-<details>
-<summary>Today we have tools and technologies like Ansible, Puppet, Chef, ... Why would someone still use shell scripting?</summary><br><b>
-
-  * Speed
-  * Flexibility
-  * The module we need doesn't exist (perhaps a weak point because most CM technologies allow to use what is known as "shell" module)
-  * We are delivering the scripts to customers who don't have access to the public network and don't necessarily have Ansible installed on their systems.
-</b></details>
-
-#### Shell Scripting - Variables
-
-<details>
-<summary>How to define a variable with the value "Hello World"?</summary><br><b>
-
-`HW="Hello World`
-</b></details>
-
-<details>
-<summary>How to define a variable with the value of the current date?</summary><br><b>
-
-`DATE=$(date)`
-</b></details>
-
-<details>
-<summary>How to print the first argument passed to a script?</summary><br><b>
-
-`echo $1`
-</b></details>
-
-<details>
-<summary>Write a script to print "yay" unless an argument was passed and then print that argument</summary><br><b>
-
-```
-echo "${1:-yay}"
-```
-</b></details>
-
-<details>
-<summary>What would be the output of the following script?
-
-```
-#!/usr/bin/env bash
-NINJA_TURTLE=Donatello
-function the_best_ninja_turtle {
-        local NINJA_TURTLE=Michelangelo
-        echo $NINJA_TURTLE
-}
-NINJA_TURTLE=Raphael
-the_best_ninja_turtle
-```
-</summary><br><b>
-Michelangelo
-</b></details>
-
-<details>
-<summary>Explain what would be the result of each command:
-
-  * <code>echo $0</code>
-  * <code>echo $?</code>
-  * <code>echo $$</code>
-  * <code>echo $#</code></summary><br><b>
-</b></details>
-
-<details>
-<summary>What is <code>$@</code>?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is difference between <code>$@</code> and <code>$*</code>?</summary><br><b>
-
-`$@` is an array of all the arguments passed to the script
-`$*` is a single string of all the arguments passed to the script
-</b></details>
-
-<details>
-<summary>How do you get input from the user in shell scripts?</summary><br><b>
-
-Using the keyword <code>read</code> so for example <code>read x</code> will wait for user input and will store it in the variable x.
-</b></details>
-
-<details>
-<summary>How to compare variables length?</summary><br><b>
-
-```
-if [ ${#1} -ne ${#2} ]; then
-    ...
-```
-</b></details>
-
-#### Shell Scripting - Conditionals
-
-<details>
-<summary>Explain conditionals and demonstrate how to use them</summary><br><b>
-</b></details>
-
-<details>
-<summary>In shell scripting, how to negate a conditional?</summary><br><b>
-</b></details>
-
-<details>
-<summary>In shell scripting, how to check if a given argument is a number?</summary><br><b>
-
-```
-regex='^[0-9]+$'
-if [[ ${var//*.} =~ $regex ]]; then
-...
-```
-</b></details>
-
-#### Shell Scripting - Arithmetic Operations
-
-<details>
-<summary>How to perform arithmetic operations on numbers?</summary><br><b>
-
-One way: `$(( 1 + 2 ))`
-Another way: `expr 1 + 2`
-</b></details>
-
-<details>
-<summary>How to perform arithmetic operations on numbers?</summary><br><b>
-</b></details>
-
-<details>
-<summary>How to check if a given number has 4 as a factor?</summary><br><b>
-
-`if [ $(($1 % 4)) -eq 0 ]; then`
-</b></details>
-
-#### Shell Scripting - Loops
-
-<details>
-<summary>What is a loop? What types of loops are you familiar with?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Demonstrate how to use loops</summary><br><b>
-</b></details>
-
-#### Shell Scripting - Troubleshooting
-
-<details>
-<summary>How do you debug shell scripts?</summary><br><b>
-
-Answer depends on the language you are using for writing your scripts. If Bash is used for example then:
-
-  * Adding -x to the script I'm running in Bash
-  * Old good way of adding echo statements
-
-If Python, then using pdb is very useful.
-</b></details>
-
-<details>
-<summary>Running the following bash script, we don't get 2 as a result, why?
-
-```
-x = 2
-echo $x
-```
-</summary><br><b>
-
-Should be `x=2`
-</b></details>
-
-#### Shell Scripting - Substring
-
-<details>
-<summary>How to extract everything after the last dot in a string?</summary><br><b>
-
-`${var//*.}`
-</b></details>
-
-<details>
-<summary>How to extract everything before the last dot in a string?</summary><br><b>
-
-${var%.*}
-</b></details>
-
-#### Shell Scripting - Misc
-
-<details>
-<summary>Generate 8 digit random number</summary><br><b>
-
-shuf -i 9999999-99999999 -n 1
-</b></details>
-
-<details>
-<summary>Can you give an example to some Bash best practices?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is the ternary operator? How do you use it in bash?</summary><br><b>
-
-A short way of using if/else. An example:
-
-[[ $a = 1 ]] && b="yes, equal" || b="nope"
-</b></details>
-
-<details>
-<summary>What does the following code do and when would you use it?
-
-<code>diff <(ls /tmp) <(ls /var/tmp)</code>
-
-</summary><br>
-It is called 'process substitution'. It provides a way to pass the output of a command to another command when using a pipe <code>|</code> is not possible. It can be used when a command does not support <code>STDIN</code> or you need the output of multiple commands.
-https://superuser.com/a/1060002/167769
-</details>
-
-<details>
-<summary>What are you using for testing shell scripts?</summary><br><b>
-
-bats
-</b></details>
-
 ## SQL
 
 ### SQL Exercises
@@ -6572,410 +6315,6 @@ A list of services and their endpoints
   * Horizon provides templates and core classes from which one can build its own dashboard
 </b></details>
 
-## Security
-
-<details>
-<summary>What is DevSecOps? What its core principals?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What the "Zero Trust" concept means? How Organizations deal with it?</summary><br><b>
-
-[Codefresh definition](https://codefresh.io/security-testing/codefresh-runner-overview): "Zero trust is a security concept that is centered around the idea that organizations should never trust anyone or anything that does not originate from their domains. Organizations seeking zero trust automatically assume that any external services it commissions have security breaches and may leak sensitive information"
-</b></details>
-
-<details>
-<summary>What it means to be "FIPS compliant"?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is a Certificate Authority?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain RBAC (Role-based Access Control)</summary><br><b>
-
-Access control based on user roles (i.e., a collection of access authorizations a user receives based on an explicit or implicit assumption of a given role). Role permissions may be inherited through a role hierarchy and typically reflect the permissions needed to perform defined functions within an organization. A given role may apply to a single individual or to several individuals.
-
-- RBAC mapped to job function, assumes that a person will take on different roles, overtime, within an organization and different responsibilities in relation to IT systems.
-
-</b></details>
-
-#### Security - Authentication and Authorization
-
-<details>
-<summary>Explain Authentication and Authorization</summary><br><b>
-
-Authentication is the process of identifying whether a service or a person is who they claim to be.
-Authorization is the process of identifying what level of access the service or the person have (after authentication was done)
-</b></details>
-
-<details>
-<summary>What authentication methods are there?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Give an example of basic authentication process</summary><br><b>
-
-A user uses the browser to authenticate to some server. It does so by using the authorization field which is constructed from the username and the password combined with a single colon. The result string is encoded using a certain character set which is compatible with US-ASCII. The authorization method + a space is prepended to the encoded string.
-</b></details>
-
-<details>
-<summary>Explain Token-based authentication</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain Risk-based authentication</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain what is Single Sign-On</summary><br><b>
-
-SSO (Single Sign-on), is a method of access control that enables a user to log in once and gain access to the resources of multiple software systems without being prompted to log in again.
-</b></details>
-
-<details>
-<summary>Explain MFA (Multi-Factor Authentication)</summary><br><b>
-
-Multi-Factor Authentication (Also known as 2FA). Allows the user to present two pieces of evidence, credentials, when logging into an account.
-
-- The credentials fall into any of these three categories: something you know (like a password or PIN), something you have (like a smart card), or something you are (like your fingerprint).  Credentials must come from two different categories to enhance security.
-
-</b></details>
-
-#### Security - Passwords
-
-<details>
-<summary>How do you manage sensitive information (like passwords) in different tools and platforms?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What password attacks are you familiar with?</summary><br><b>
-
-  * Dictionary
-  * Brute force
-  * Password Spraying
-  * Social Engineering
-    * Whaling
-    * Vishing
-    * Phising
-    * Whaling
-</b></details>
-
-<details>
-<summary>How to mitigate password attacks?</summary><br><b>
-
-  * Strong password policy
-  * Do not reuse passwords
-  * ReCaptcha
-  * Training personnel against Social Engineering
-  * Risk Based Authentication
-  * Rate limiting
-  * MFA
-</b></details>
-
-#### Security - Cookies
-
-<details>
-<summary>What are cookies? Explain cookie-based authentication</summary><br><b>
-</b></details>
-
-<details>
-<summary>True or False? Cookie-based authentication is stateful</summary><br><b>
-
-True. Cookie-based authentication session must be kept on both server and client-side.
-</b></details>
-
-<details>
-<summary>Explain the flow of using cookies</summary><br><b>
-
-1. User enters credentials
-2. The server verifies the credentials -> a sessions is created and stored in the database
-3. A cookie with the session ID is set in the browser of that user
-4. On every request, the session ID is verified against the database
-5. The session is destroyed (both on client-side and server-side) when the user logs out
-</b></details>
-
-#### Security - SSH
-
-<details>
-<summary>What is SSH how does it work?</summary><br><b>
-
-[Wikipedia Definition](https://en.wikipedia.org/wiki/SSH_(Secure_Shell)): "SSH or Secure Shell is a cryptographic network protocol for operating network services securely over an unsecured network."
-
-[Hostinger.com Definition](https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work): "SSH, or Secure Shell, is a remote administration protocol that allows users to control and modify their remote servers over the Internet."
-
-[This site](https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work) explains it in a good way.
-</b></details>
-
-<details>
-<summary>What is the role of an SSH key?</summary><br><b>
-</b></details>
-
-#### Security - Cryptography
-
-<details>
-<summary>Explain Symmetrical encryption</summary><br><b>
-
-A symmetric encryption is any technique where a key is used to both encrypt and decrypt the data/entire communication.
-</b></details>
-
-<details>
-<summary>Explain Asymmetrical encryption</summary><br><b>
-
-A asymmetric encryption is any technique where the there is two different keys that are used for encryption and decryption, these keys are known as public key and private key.
-</b></details>
-
-<details>
-<summary>What is "Key Exchange" (or "key establishment") in cryptography?</summary><br><b>
-
-[Wikipedia](https://en.wikipedia.org/wiki/Key_exchange): "Key exchange (also key establishment) is a method in cryptography by which cryptographic keys are exchanged between two parties, allowing use of a cryptographic algorithm."
-</b></details>
-
-<details>
-<summary>True or False? The symmetrical encryption is making use of public and private keys where the private key is used to decrypt the data encrypted with a public key</summary><br><b>
-
-False. This description fits the asymmetrical encryption.
-</b></details>
-
-<details>
-<summary>True or False? The private key can be mathematically computed from a public key</summary><br><b>
-False.
-</b></details>
-
-<details>
-<summary>True or False? In the case of SSH, asymmetrical encryption is not used to the entire SSH session</summary><br><b>
-
-True. It is only used during the key exchange algorithm of symmetric encryption.
-</b></details>
-
-<details>
-<summary>What is Hashing?</summary><br><b>
-</b></details>
-
-<details>
-<summary>How hashes are part of SSH?</summary><br><b>
-
-Hashes used in SSH to verify the authenticity of messages and to verify that nothing tampered with the data received.
-</b></details>
-
-<details>
-<summary>Explain the following:
-
-  * Vulnerability
-  * Exploits
-  * Risk
-  * Threat</summary><br><b>
-</b></details>
-
-<details>
-<summary>Are you familiar with "OWASP top 10"?</summary><br><b>
-
-Read about it [here](https://owasp.org/www-project-top-ten)
-</b></details>
-
-<details>
-<summary>What is XSS?</summary><br><b>
-
-Cross Site Scripting (XSS) is an type of a attack when the attacker inserts browser executable code within a HTTP response. Now the injected attack is not stored in the web application, it will only affact the users who open the maliciously crafted link or third-party web page. A successful attack allows the attacker to access any cookies, session tokens, or other sensitive information retained by the browser and used with that site 
-
-You can test by detecting user-defined variables and how to input them. This includes hidden or non-obvious inputs such as HTTP parameters, POST data, hidden form field values, and predefined radio or selection values. You then analyze each found vector to see if their are potential vulnerabilities, then when found you craft input data with each input vector. Then you test the crafted input and see if it works.
-
-</b></details>
-
-<details>
-<summary>What is an SQL injection? How to manage it?</summary><br><b>
-
-SQL injection is an attack consists of inserts either a partial or full SQL query through data input from the browser to the web application. When a successful SQL injection happens it will allow the attacker to read sensitive information stored on the database for the web application. 
-
-You can test by using a stored procedure, so the application must be sanitize the user input to get rid of the tisk of code injection. If not then the user could enter bad SQL, that will then be executed within the procedure
-
-</b></details>
-
-<details>
-<summary>What is Certification Authority?</summary><br><b>
-</b></details>
-
-<details>
-<summary>How do you identify and manage vulnerabilities?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain "Privilege Restriction"</summary><br><b>
-</b></details>
-
-<details>
-<summary>How HTTPS is different from HTTP?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What types of firewalls are there?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is DDoS attack? How do you deal with it?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is port scanning? When is it used?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is the difference between asynchronous and synchronous encryption?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain Man-in-the-middle attack</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain CVE and CVSS</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is ARP Poisoning?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Describe how do you secure public repositories</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is DNS Spoofing? How to prevent it?</summary><br><b>
-
-DNS spoofing occurs when a particular DNS server’s records of “spoofed” or altered maliciously to redirect traffic to the attacker. This redirection of traffic allows the attacker to spread malware, steal data, etc.
-
-**Prevention**
-- Use encrypted data transfer protocols - Using end-to-end encryption vian SSL/TLS will help decrease the chance that a website / its visitors are compromised by DNS spoofing.
-- Use DNSSEC - DNSSEC, or Domain Name System Security Extensions, uses digitally signed DNS records to help determine data authenticity.
-- Implement DNS spoofing detection mechanisms - it’s important to implement DNS spoofing detection software. Products such as XArp help product against ARP cache poisoning by inspecting the data that comes through before transmitting it.
-
-</b></details>
-
-<details>
-<summary>What can you tell me about Stuxnet?</summary><br><b>
-
-Stuxnet is a computer worm that was originally aimed at Iran’s nuclear facilities and has since mutated and spread to other industrial and energy-producing facilities. The original Stuxnet malware attack targeted the programmable logic controllers (PLCs) used to automate machine processes. It generated a flurry of media attention after it was discovered in 2010 because it was the first known virus to be capable of crippling hardware and because it appeared to have been created by the U.S. National Security Agency, the CIA, and Israeli intelligence.
-</b></details>
-
-<details>
-<summary>What can you tell me about the BootHole vulnerability?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What can you tell me about Spectre?</summary><br><b>
-
-Spectre is an attack method which allows a hacker to “read over the shoulder” of a program it does not have access to. Using code, the hacker forces the program to pull up its encryption key allowing full access to the program
-
-</b></details>
-
-<details>
-<summary>Explain OAuth</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain "Format String Vulnerability"</summary><br><b>
-</b></details>
-
-
-<details>
-<summary>Explain DMZ</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain TLS</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is CSRF? How to handle CSRF?</summary><br><b>
-
-Cross-Site Request Forgery (CSRF) is an attack that makes the end user to initate a unwanted action on the web application in which the user has a authenticated session, the attacker may user an email and force the end user to click on the link and that then execute malicious actions. When an CSRF attack is successful it will compromise the end user data 
-
-You can use OWASP ZAP to analyze a "request", and if it appears that there no protection against cross-site request forgery when the Security Level is set to 0 (the value of csrf-token is SecurityIsDisabled.) One can use data from this request to prepare a CSRF attack by using OWASP ZAP
-
-</b></details>
-
-<details>
-<summary>Explain HTTP Header Injection vulnerability</summary><br><b>
-
-HTTP Header Injection vulnerabilities occur when user input is insecurely included within server responses headers. If an attacker can inject newline characters into the header, then they can inject new HTTP headers and also, by injecting an empty line, break out of the headers into the message body and write arbitrary content into the application's response.
-
-</b></details>
-
-<details>
-<summary>What security sources are you using to keep updated on latest news?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What TCP and UDP vulnerabilities are you familiar with?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Do using VLANs contribute to network security?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What are some examples of security architecture requirements?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is air-gapped network (or air-gapped environment)? What its advantages and disadvantages?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain what is Buffer Overflow</summary><br><b>
-
-A buffer overflow (or buffer overrun) occurs when the volume of data exceeds the storage capacity of the memory buffer. As a result, the program attempting to write the data to the buffer overwrites adjacent memory locations.
-</b></details>
-
-<details>
-<summary>What is Nonce?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is SSRF?</summary><br><b>
-
-SSRF (Server-side request forgery) it's a vulnerability where you can make a server make arbitrary requests to anywhere you want.
-
-Read more about it at [portswigger.net](https://portswigger.net/web-security/ssrf)
-</b></details>
-
-<details>
-<summary>Explain MAC flooding attack</summary><br><b>
-
-MAC address flooding attack (CAM table flooding attack) is a type of network attack where an attacker connected to a switch port floods the switch interface with very large number of Ethernet frames with different fake source MAC address.
-
-</b></details>
-
-<details>
-<summary>What is port flooding?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is "Diffie-Hellman key exchange" and how does it work?</summary><br><b>
-</b></details>
-
-<details>
-<summary>Explain "Forward Secrecy"</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is Cache Poisoned Denial of Service?</summary><br><b>
-
-CPDoS or Cache Poisoned Denial of Service. It poisons the CDN cache. By manipulating certain header requests, the attacker forces the origin server to return a Bad Request error which is stored in the CDN’s cache. Thus, every request that comes after the attack will get an error page.
-
-</b></details>
-
-#### Security - Threats
-
-<details>
-<summary>Explain "Advanced persistent threat (APT)"</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is a "Backdoor" in information security?</summary><br><b>
-</b></details>
-
 ## Puppet
 
 <details>
@@ -7349,113 +6688,6 @@ False. One harvester harvests one file.
 <summary>How do you secure an Elastic Stack?</summary><br><b>
 
 You can generate certificates with the provided elastic utils and change configuration to enable security using certificates model.
-</b></details>
-
-## DNS
-
-<details>
-<summary>What is DNS? What is it used for?</summary><br><b>
-
-DNS (Domain Name Systems) is a protocol used for converting domain names into IP addresses.<br>
-As you know computer networking is done with IP addresses (layer 3 of the OSI model) but for as humans it's hard to remember IP addresses, it's much easier to remember names. This why we need something such as DNS to convert any domain name we type into an IP address. You can think on DNS as a huge phonebook or database where each corresponding name has an IP.
-</b></details>
-
-<details>
-<summary>What is DNS resolution?</summary><br><b>
-
-The process of translating IP addresses to domain names.
-</b></details>
-
-<details>
-<summary>What is a DNS record?</summary><br><b>
-
-A mapping between domain name and an IP address.
-</b></details>
-
-<details>
-<summary>How DNS works?</summary><br><b>
-
-In general the process is as follows:
-
-  * The user types an address in the web browser (some_site.com)
-  * The operating system gets a request from the browser to translate the address the user entered
-  * A query created to check a local entry of the address exists in the system. In case it doesn't, the request is forwarded to the DNS resolver
-  * The Resolver is a server, usually configured by your ISP when you connect to the internet, that responsible for resolving your query by contacting other DNS servers
-  * The Resolver contacts the root nameserver (aka as .)
-  * The root nameserver responds with the address of the relevant Top Level Domain DNS server (if your address ends with org then the org TLD)
-  * The Resolver then contacts the TLD DNS and TLD DNS responds with the IP address that matches the address the user typed in the browser
-  * The Resolver passes this information to the browser
-  * The user is happy :D
-</b></details>
-
-<details>
-<summary>Explain the resolution sequence of: www.site.com</summary><br><b>
-
-It's resolved in this order:
-
-1) .
-2) .com
-3) site.com
-4) www.site.com
-</b></details>
-
-<details>
-<summary>What types of DNS records are there?</summary><br><b>
-
-  * A
-  * PTR
-  * MX
-  * AAAA
-  ...
-
-A more detailed list, can be found [here](https://www.nslookup.io/learning/dns-record-types)
-</b></details>
-
-<details>
-<summary>What is a A record?</summary><br><b>
-
-A (Address) Maps a host name to an IP address. When a computer has multiple adapter cards and IP addresses, it should have multiple address records.
-</b></details>
-
-<details>
-<summary>What is a AAAA record?</summary><br><b>
-
-An AAAA Record performs the same function as an A Record, but for an IPv6 Address.
-</b></details>
-
-<details>
-<summary>What is a PTR record?</summary><br><b>
-
-While an A record points a domain name to an IP address, a PTR record does the opposite and resolves the IP address to a domain name.
-</b></details>
-
-<details>
-<summary>What is a MX record?</summary><br><b>
-MX (Mail Exchange) Specifies a mail exchange server for the domain, which allows mail to be delivered to the correct mail servers in the domain.
-</b></details>
-
-<details>
-<summary>Is DNS using TCP or UDP?</summary><br><b>
-
-DNS uses UDP port 53 for resolving queries either regular or reverse. DNS uses TCP for zone transfer.
-</b></details>
-
-<details>
-<summary>True or False? DNS can be used for load balancing</summary><br><b>
-
-True.
-</b></details>
-
-<details>
-<summary>Which techniques a DNS can use for load balancing?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is DNS Record TTL? Why do we need it?</summary><br><b>
-</b></details>
-
-<details>
-<summary>What is a zone? What types of zones are there?</summary><br><b>
 </b></details>
 
 ## Distributed
@@ -8894,7 +8126,7 @@ If you are looking for a way to prepare for a certain exam this is the section f
 
 #### AWS
 
-* [Cloud Practitioner](certificates/cloud-practitioner.md) (Latest update: 2020)
+* [Cloud Practitioner](certificates/aws-cloud-practitioner.md) (Latest update: 2020)
 * [Solutions Architect Associate](certificates/aws-solutions-architect-associate.md) (Latest update: 2021)
 
 #### Azure
